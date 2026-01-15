@@ -1,9 +1,8 @@
 import Navbar from "@/components/Navbar";
 import ProjectCard from "@/components/ProjectCard";
+import ContactForm from "@/components/ContactForm"; // 1. Import dulu
 
 export default function Home() {
-  // PERUBAHAN 1: Tambahkan path gambar di sini
-  // (Perhatikan tanda garis miring '/' di depan nama file)
   const projects = [
     { id: 1, nama: "Website Bioskop", bahasa: "Java", status: "Selesai", gambar: "/bioskop.jpg" },
     { id: 2, nama: "Alat Deteksi Jantung", bahasa: "C++", status: "Selesai", gambar: "/jantung.jpg" },
@@ -11,26 +10,33 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white pt-24 px-10">
+    <div className="min-h-screen bg-black text-white pt-24 px-10 pb-20"> {/* Tambah pb-20 biar bawahnya lega */}
       <Navbar />
 
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold mb-8 text-center">
-          Dhani (Suka Ngoding) Ibrahim
+          Portfolio Dhani (Suka Ngoding) Ibrahim
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects">
+        {/* Bagian Project */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" id="projects">
           {projects.map((item) => (
-            // PERUBAHAN 2: Jangan lupa kirim props 'gambar' di sini!
             <ProjectCard
               key={item.id}
               nama={item.nama}
               bahasa={item.bahasa}
               status={item.status}
-              gambar={item.gambar} // <--- INI TAMBAHAN PENTING
+              gambar={item.gambar}
             />
           ))}
         </div>
+
+        {/* 2. Bagian Contact Form Baru */}
+        <div id="contact">
+          <h2 className="text-3xl font-bold text-center mb-6">Hubungi Saya</h2>
+          <ContactForm />
+        </div>
+
       </div>
     </div>
   );
