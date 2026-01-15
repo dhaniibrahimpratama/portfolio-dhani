@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import ProjectCard from "@/components/ProjectCard";
 import ContactForm from "@/components/ContactForm"; // 1. Import dulu
+import Footer from "@/components/Footer"; // 1. Import Footer
 
 export default function Home() {
   const projects = [
@@ -36,6 +37,8 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-6">Hubungi Saya</h2>
           <ContactForm />
         </div>
+
+        <Footer />
 
       </div>
     </div>
